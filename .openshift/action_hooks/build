@@ -20,12 +20,12 @@ current_version_dir=${OPENSHIFT_DATA_DIR}current
 mkdir -p $install_dir
 
 pushd ${install_dir} >/dev/null
-curl -Ls http://wordpress.org/wordpress-${install_version}.tar.gz > wordpress-${install_version}.tar.gz
+curl -Ls http://vi.wordpress.org/wordpress-${install_version}.tar.gz > wordpress-${install_version}.tar.gz
 
 # Verify the sources
 #
 tarball_md5=$(md5sum wordpress-${install_version}.tar.gz | cut -d ' ' -f 1)
-wordpress_md5=$(curl -Ls http://wordpress.org/wordpress-${install_version}.tar.gz.md5)
+wordpress_md5=$(curl -Ls http://vi.wordpress.org/wordpress-${install_version}.tar.gz.md5)
 
 if [ "${tarball_md5}" != "${wordpress_md5}" ]; then
   echo "ERROR: WordPress ${install_version} MD5 checksum mismatch."
